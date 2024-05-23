@@ -4,12 +4,12 @@ export class Todo {
   id: UUID;
   userId: UUID;
   title: string;
-  status: boolean;
+  done: boolean;
 
-  constructor(userId: UUID, title: string, status: boolean, id?: UUID) {
+  constructor(userId: UUID, title: string, done: boolean, id?: UUID) {
     this.userId = userId;
     this.title = title;
-    this.status = status;
+    this.done = done;
     this.id = id ?? randomUUID();
   }
 }

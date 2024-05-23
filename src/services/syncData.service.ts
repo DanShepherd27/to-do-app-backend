@@ -6,7 +6,9 @@ export class SyncDataService {
   logSyncData(syncData: SyncData) {
     console.log(syncData.user.username + '\n');
     syncData.todos.forEach((todo) =>
-      console.log(`TODO: ${todo.title} - STATUS: ${todo.status}`),
+      console.log(
+        `TODO: ${todo.title} STATUS: ${todo.done ? 'done' : 'pending'}`,
+      ),
     );
   }
 }
