@@ -1,12 +1,15 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './controllers/app.controller';
 import { AppService } from './services/app.service';
-import { SyncDataController } from './controllers/syncData.controller';
-import { SyncDataService } from './services/syncData.service';
+import { UserModule } from './user.module';
+import { TodoModule } from './todo.module';
+import { DatabaseModule } from './database.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController, SyncDataController],
-  providers: [AppService, SyncDataService],
+  imports: [DatabaseModule, UserModule, TodoModule],
+  controllers: [AppController],
+  providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {}
+}

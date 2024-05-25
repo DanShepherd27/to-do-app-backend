@@ -1,11 +1,15 @@
-import { UUID, randomUUID } from 'crypto';
+import { UUID } from 'crypto';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Todo } from './Todo';
 
+@Entity()
 export class User {
+  @PrimaryGeneratedColumn('uuid')
   id: UUID;
+
+  @Column()
   username: string;
 
-  constructor(username: string, id?: UUID) {
-    this.username = username;
-    this.id = id ?? randomUUID();
-  }
+  @OneToMany(() => Todo, ({ user }) => user, { cascade: true })
+  todos: Todo[];
 }
