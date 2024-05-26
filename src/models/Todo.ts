@@ -19,6 +19,9 @@ export class Todo {
   @Column({ default: false })
   done: boolean;
 
+  @Column()
+  index: number;
+
   @ManyToOne(() => User, ({ todos }) => todos, { onDelete: 'CASCADE' })
   @JoinColumn()
   user: User;

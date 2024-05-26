@@ -12,14 +12,14 @@ export class TodoService {
   ) {}
 
   async findAll(userId: UUID): Promise<Array<Todo>> {
-    const newUser = await this.userRepository.findOne({
+    const user = await this.userRepository.findOne({
       where: { id: userId },
     });
-    if (!newUser) {
+    if (!user) {
       throw new Error('User not found');
     }
     return await this.todosRepository.find({
-      where: { user: newUser },
+      where: { user },
       relations: ['user'],
     });
   }
