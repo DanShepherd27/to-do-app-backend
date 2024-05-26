@@ -4,6 +4,10 @@ To-Do App backend repository
 
 Created with: NestJS, TypeScript
 
+# Release
+
+Current version: v1.0
+
 ## Installation
 
 1. Create PostgreSQL database (e.g. with pgAdmin)
@@ -26,6 +30,7 @@ $ npm run start
 $ npm run start:dev
 
 # production mode
+$ npm run build
 $ npm run start:prod
 ```
 
